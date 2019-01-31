@@ -3,22 +3,14 @@
  */
 public class LeapYear {
 
-	/**
+    /**
 	 * will be called by checkLeapYear to return correct answer.
 	 * @param  year year to be analyzed
 	 * @return      ture if year is a leapyear, false if not
 	 */
-	private static boolean isLeapYear(int year) {
-		if (year % 4 == 0) {
-			if (year % 100 == 0) {
-				if (year % 400 == 0) {
-					return true;
-				} else {
-					return false;
-				}
-			} else {
-				return true;
-			}
+    public static boolean isLeapYear(int year) {
+		if (year % 400 || (year % 4 && year % 100 != 0)) {
+			return true
 		} else {
 			return false;
 		}
