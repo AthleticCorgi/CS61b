@@ -4,17 +4,17 @@
 public class LeapYear {
 
     /**
-	 * will be called by checkLeapYear to return correct answer.
-	 * @param  year year to be analyzed
-	 * @return      ture if year is a leapyear, false if not
-	 */
+     * will be called by checkLeapYear to return correct answer.
+     * @param  year year to be analyzed
+     * @return      ture if year is a leapyear, false if not
+     */
     public static boolean isLeapYear(int year) {
-		if (year % 400 || (year % 4 == 0 && year % 100 != 0)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+        if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     /** Calls isLeapYear to print correct statement.
      *  @param  year to be analyzed
