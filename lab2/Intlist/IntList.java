@@ -44,6 +44,16 @@ public class IntList {
         }
     }
 
+    /*
+    public static void dSquareList(IntList L) {
+        if (L == null) {
+        return;
+        }
+        L.first = L.first * L.first;
+        dSquareList(L.rest);
+    }
+     */
+
     /**
      * Returns a list equal to L with all elements squared. Non-destructive.
      */
@@ -79,19 +89,65 @@ public class IntList {
      * Returns a list consisting of the elements of A followed by the
      * *  elements of B.  May modify items of A. Don't use 'new'.
      */
+    /*
+    public static IntList dcatenate(IntList A, IntList B) {
+        if (A == null) {
+            return B;
+        }
+        IntList head = A;
+        while (A.rest != null) {
+            A = A.rest;
+        }
+        A.rest = B;
+        return head;
+    }
+    */
 
     public static IntList dcatenate(IntList A, IntList B) {
-        //TODO:  fill in method
-        return null;
+        if (A == null) {
+            return B;
+        }
+        if (A.rest == null) {
+            A.rest = B;
+            return A;
+        }
+        A.rest = dcatenate(A.rest, B);
+        return A;
     }
 
     /**
      * Returns a list consisting of the elements of A followed by the
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
+    /*
     public static IntList catenate(IntList A, IntList B) {
-        //TODO:  fill in method
-        return null;
+        if (A == null) {
+            return B;
+        }
+        IntList ans = new IntList(A.first, null);
+        IntList head = ans;
+        A = A.rest;
+        while (A != null) {
+            ans.rest = new IntList(A.first, null);
+            A = A.rest;
+            ans = ans.rest;
+        }
+        ans.rest = B;
+        return head;
+    }
+     */
+
+    /**
+     *
+     * @param A
+     * @param B
+     * @return recursively concatenate A and B without changing A.
+     */
+    public static IntList catenate(IntList A, IntList B) {
+        if (A == null) {
+            return B;
+        }
+        return new IntList(A.first, catenate(A.rest, B));
     }
 
 
