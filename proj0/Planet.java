@@ -1,5 +1,5 @@
 public class Planet {
-    public static final double G = 6.67e-11;
+    private static final double G = 6.67e-11;
     public double xxPos;
     public double yyPos;
     public double xxVel;
@@ -72,7 +72,7 @@ public class Planet {
         yyVel = yyVel + dt * fY / mass;
     }
 
-    public boolean equals (Planet p) {
+    private boolean equals (Planet p) {
         return (xxPos == p.xxPos && yyPos == p.yyPos && mass == p.mass
             && xxVel == p.xxVel && yyVel == p.yyVel && imgFileName == p.imgFileName);
     }
